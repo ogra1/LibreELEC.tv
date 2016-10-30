@@ -38,7 +38,7 @@ fi
 
 find $ADDON_DIR/bin -maxdepth 1 -type f ! -perm 0755 -exec chmod 0755 \{\} \;
 
-if [ "$WORKAROUND_SLEEP" == "true" ] ; then
+if [ "$WORKAROUND_SLEEP" = "true" ] ; then
   sleep $WORKAROUND_SLEEP_TIME
 fi
 
@@ -50,7 +50,7 @@ for driver_dvb in $(find /storage/.kodi/addons/driver.dvb.*/bin/userspace-driver
   . $driver_dvb
 done
 
-if [ "$WAIT_FOR_FEINIT" == "true" ] ; then
+if [ "$WAIT_FOR_FEINIT" = "true" ] ; then
   while [ true ] ; do
     if [ -e /dev/dvb/adapter$((NUM_ADAPTERS-1))/frontend0 ] ; then
       break
